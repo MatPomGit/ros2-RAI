@@ -3,13 +3,13 @@ name: Poetry Update
 on:
   workflow_dispatch:
 
-  schedule:
-    - cron: "0 0 * * 1"
+permissions:
+  contents: read
 
 jobs:
   upgrade-dependencies:
     runs-on: ubuntu-24.04
-
+    timeout-minutes: 15
     steps:
       - uses: fuzzylabs/gha-poetry-update@v1
         with:
